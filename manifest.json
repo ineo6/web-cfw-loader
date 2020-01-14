@@ -1,13 +1,13 @@
 {
   "name": "Switch Payload Loader",
   "short_name": "CFW-Loader",
-  "start_url": "/index.html",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#fff",
   "theme_color": "#3eaf7c",
   "icons": [
     {
-      "src": "/favicon.png",
+      "src": "./favicon.png",
       "sizes": "120x120",
       "type": "image/png"
     }
