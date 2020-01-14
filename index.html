@@ -6,6 +6,7 @@
   <link rel="stylesheet" type="text/css" href="style.css" />
   <link href="favicon.png" rel="icon"  type="image/x-icon" />
   <title>Switch Payload Loader v1.5</title>
+  <link rel="manifest" href="manifest.json">
 
   <script src="./i18n/en-US.js"></script>
   <script src="./i18n/it-IT.js"></script>
@@ -64,7 +65,7 @@
       <div class="alert alert-danger" role="alert">
         <p id="dangerDanger">This is moderately tested. Although no issues have been discovered, we're not responsible if anything goes wrong!</p>
       </div>
-      
+
       <div class="alert alert-warning alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <p id="warningWindows">This may or may not work on Windows due to a limitation in the Chrome implementation of WebUSB (and probably other reasons!). In our testing, it will sometimes work so give it a shot, but be wary.</p>
@@ -99,7 +100,7 @@
       <div class="alert alert-info" role="alert">
         <p>Switch Hacking Guide: <strong><a href="https://guide.teamatlasnx.com">CLICK HERE</a></strong></p>
       </div>
-      
+
       <div class="alert alert-info" role="alert">
         <p id="labelContribute">If you would like to help adding another translation or updating/adding a payload, check <a href="https://github.com/AtlasNX/web-cfw-loader/blob/master/CONTRIBUTING.md">this</a>.</p>
       </div>
@@ -163,6 +164,19 @@
 
   <script src="./payloads/hekate.js"></script>
   <script src="./main.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js').then(function(registration) {
+          // Registration was successful
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function(err) {
+          // registration failed :(
+          console.log('ServiceWorker registration failed: ', err);
+        });
+      });
+    }
+  </script>
 </body>
 
 <div class="row margin-top-md" id="page-footer">
